@@ -8,6 +8,7 @@ class App extends Component {
       projectDescription: [],
       projectUrl: [],
       techUsed: [],
+      lastUpdated: [],
     };
   
     async componentDidMount() {
@@ -20,11 +21,14 @@ class App extends Component {
           this.state.projectName.push({projectName: data[i].name});
           this.state.projectDescription.push({projectDescription: data[i].description});
           this.state.projectUrl.push({projectUrl: data[i].html_url});
-          this.state.techUsed.push({techUsed: data[i].languages_url});
+          this.state.lastUpdated.push({lastUpdated: data[i].updated_at});
+          this.state.techUsed.push({techUsed: data[i].language});
+          /* use languages_url for more details on languages, use language for large makup */
         }
         console.log(this.state.projectName)
         console.log(this.state.projectDescription)
         console.log(this.state.projectUrl)
+        console.log(this.state.lastUpdated)
         console.log(this.state.techUsed)
         /* this.setState({projectName: data.results});
         console.log(data);
