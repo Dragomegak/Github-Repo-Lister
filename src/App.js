@@ -6,8 +6,8 @@ class App extends Component {
       loading: true,
       projectName: [],
       projectDescription: [],
-      projectHomepage: [],
-      htmlUrl: [],
+      projectUrl: [],
+      techUsed: [],
     };
   
     async componentDidMount() {
@@ -19,12 +19,13 @@ class App extends Component {
         for (i = 0; i < data.length; i++){
           this.state.projectName.push({projectName: data[i].name});
           this.state.projectDescription.push({projectDescription: data[i].description});
-          this.state.projectHomepage.push({projectHomepage: data[i].html_url});
+          this.state.projectUrl.push({projectUrl: data[i].html_url});
+          this.state.techUsed.push({techUsed: data[i].languages_url});
         }
         console.log(this.state.projectName)
         console.log(this.state.projectDescription)
-        console.log(this.state.projectHomepage)
-        console.log(this.state.projectName)
+        console.log(this.state.projectUrl)
+        console.log(this.state.techUsed)
         /* this.setState({projectName: data.results});
         console.log(data);
         console.log(data.length) */
