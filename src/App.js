@@ -23,13 +23,15 @@ class App extends Component {
           this.state.projectUrl.push({projectUrl: data[i].html_url});
           this.state.lastUpdated.push({lastUpdated: data[i].updated_at});
           this.state.techUsed.push({techUsed: data[i].language});
-          /* use languages_url for more details on languages, use language for large makup */
+          /* use languages_url for more details on languages (in object), use language for large makup */
+          /* need to find a way to fetch second link: languages used and only the key */
         }
         console.log(this.state.projectName)
         console.log(this.state.projectDescription)
         console.log(this.state.projectUrl)
         console.log(this.state.lastUpdated)
         console.log(this.state.techUsed)
+        
         /* this.setState({projectName: data.results});
         console.log(data);
         console.log(data.length) */
