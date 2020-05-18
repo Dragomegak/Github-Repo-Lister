@@ -27,7 +27,8 @@ class App extends Component {
           /* use languages_url for more details on languages (in object), use language for large makup */
           /* need to find a way to fetch second link: languages used and only the key */
         }
-        /* console.log(this.state.projectName)
+        console.log(this.state.projectName)
+        /* 
         console.log(this.state.projectDescription)
         console.log(this.state.projectUrl)
         console.log(this.state.lastUpdated)
@@ -35,10 +36,11 @@ class App extends Component {
         this.setState({projectName: data.results});
         console.log(data);
         console.log(data.length) 
-        console.log(data[0].name); */
-        this.techUsedList();
+        console.log(data[0].name);
+        console.log(this.state.techUsedUrl[1])  
+        this.techUsedList();*/
     }
-    techUsedList = async () =>{
+    /* techUsedList = async () =>{
       let i = 0;
       for (i = 0; i < this.state.techUsedUrl.length; i++){
         const url = this.state.techUsedUrl[i];
@@ -51,18 +53,12 @@ class App extends Component {
           console.log(data[i]);
         }
         this.state.techUsed.push(tempList);
-        console.log(this.state.techUsed)
+        console.log(this.state.data)
       }
-    }
+    } */
     render() {
       return (
-        <div>
-          {/* Render the newly fetched data inside of this.state.data */} 
-          {this.state.loading || !this.state.projectName ? (
-            <div>loading...</div>
-            ) : (
-            <div><div>{this.state.projectName}</div></div>
-          )}
+         <div>{/* Try to display the objects stored in state here */}
         </div>
       );
     }
