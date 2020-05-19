@@ -19,11 +19,11 @@ class App extends Component {
         const data = await response.json();
         let i = 0;
         for (i = 0; i < data.length; i++){
-          this.state.projectName.push({projectName: data[i].name});
-          this.state.projectDescription.push({projectDescription: data[i].description});
-          this.state.projectUrl.push({projectUrl: data[i].html_url});
-          this.state.lastUpdated.push({lastUpdated: data[i].updated_at});
-          this.state.techUsedUrl.push({techUsedUrl: data[i].languages_url});
+          this.setState({projectName: data[i].name, loading: false });
+          this.setState({projectDescription: data[i].description});
+          this.setState({projectUrl: data[i].html_url});
+          this.setState({lastUpdated: data[i].updated_at});
+          this.setState({techUsedUrl: data[i].languages_url});
           /* use languages_url for more details on languages (in object), use language for large makup */
           /* need to find a way to fetch second link: languages used and only the key */
         }
@@ -56,11 +56,22 @@ class App extends Component {
         console.log(this.state.data)
       }
     } */
+
     render() {
+      if (this.state.loading) {
+        return <div>loading...</div>;
+      }
+  
+      if (!this.state.projectName) {
+        return <div>didn't get a person</div>;
+      }
       return (
-         <div>{/* Try to display the objects stored in state here */}
+        <div>
+          <div>{this.state.projectName}</div>
+          <div>{this.state.projectDescription}</div>
+          <div>{this.state.projectUrl}</div>
         </div>
-      );
+        )
     }
   }
 
